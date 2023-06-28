@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char locations[15][20] = {
+        "Bangalore",
+        "Bangalore East", "Bangalore West",
+        "A", "B", "C", "D",
+        "56001","56002","56003","56004","56005","56006","56007","56008",
+    };
+
+    char code1[20], code2[20];
+
+    printf("Enter Code 1: ");
+    scanf("%[^\n]%*c", code1);
+
+    printf("Enter Code 2: ");
+    scanf("%[^\n]%*c", code2);
+
+    int index1 = -1, index2 = -1;
+
+    for (int i = 0; i < 15; i++)
+    {
+        if (strcmp(locations[i], code1) == 0)
+        {
+            index1 = i;
+            break;
+        }
+    }
+
+    for (int i = 0; i < 15; i++)
+    {
+        if (strcmp(locations[i], code2) == 0)
+        {
+            index2 = i;
+            break;
+        }
+    }
+
+    if (index1 < 0 && index2 < 0)
+    {
+        printf("\nEnter valid codes!!");
+        return 0;
+    }
+
+    int townIndex1 = (index1 - 1) / 2;
+    int townIndex2 = (index2 - 1) / 2;
+
+    int suburbIndex1 = (townIndex1 - 1) / 2;
+    int suburbIndex2 = (townIndex2 - 1) / 2;
+
+    printf("\nCommon between corporations: ");
+    if (townIndex2 == townIndex1)
+    {
+        printf("%s,", locations[townIndex1]);
+    }
+    if (suburbIndex1 == suburbIndex2)
+    {
+        printf(" %s,", locations[suburbIndex1]);
+    }
+    printf(" %s", locations[0]);
+
+    return 0;
+}
