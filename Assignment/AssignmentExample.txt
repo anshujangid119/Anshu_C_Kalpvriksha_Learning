@@ -50,16 +50,15 @@ int main()
     int suburbIndex1 = (townIndex1 - 1) / 2;
     int suburbIndex2 = (townIndex2 - 1) / 2;
 
-    printf("\nCommon between corporations: ");
     if (townIndex2 == townIndex1)
     {
-        printf("%s,", locations[townIndex1]);
+        printf("-> %s,", locations[townIndex1]);
     }
     if (suburbIndex1 == suburbIndex2)
     {
-        printf(" %s,", locations[suburbIndex1]);
+        printf("->  %s,", locations[suburbIndex1]);
     }
-    printf(" %s", locations[0]);
+    printf("->  %s", locations[0]);
 
     return 0;
 }
